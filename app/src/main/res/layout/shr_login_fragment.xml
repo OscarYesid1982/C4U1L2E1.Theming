@@ -98,11 +98,14 @@
             android:paddingTop="16dp">
 
             <TextView
+                android:id="@+id/register_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="Registrar" />
 
             <TextView
+                android:id="@+id/register_recovery"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Recuperar datos" />

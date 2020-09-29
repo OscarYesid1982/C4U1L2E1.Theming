@@ -6,14 +6,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 
 public class ProductGridFragment extends Fragment {
@@ -26,7 +29,7 @@ public class ProductGridFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            @NonNull final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment with the ProductGrid theme
         View view = inflater.inflate(R.layout.shr_product_grid_fragment, container, false);
 
@@ -44,7 +47,18 @@ public class ProductGridFragment extends Fragment {
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing_small);
         recyclerView.addItemDecoration(new ProductGridItemDecoration(largePadding, smallPadding));
 
+        //Functions Objects Backdrop
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.container, new RegisterUserFragment());
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.addToBackStack(null);
+        ft.commit();
+
+
+
         return view;
+
+
     }
 
     private void setUpToolbar(View view) {
@@ -62,5 +76,6 @@ public class ProductGridFragment extends Fragment {
         menuInflater.inflate(R.menu.shr_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
     }
+
 
 }

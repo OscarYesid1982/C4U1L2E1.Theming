@@ -42,6 +42,7 @@ public class LoginFragment extends Fragment {
             }
         });
 
+
         // Clear the error once more than 8 characters are typed.
         passwordEditText.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -62,4 +63,5 @@ public class LoginFragment extends Fragment {
     private boolean isPasswordValid(@Nullable Editable text) {
         return text != null && text.length() >= 8;
     }
+
 }

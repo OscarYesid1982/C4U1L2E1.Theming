@@ -20,22 +20,24 @@ public class RegisterUserFragment extends Fragment {
     Button _signupButton = null;
 
 
+    /*
     public static RegisterUserFragment newInstance(String param1, String param2) {
         RegisterUserFragment fragment = new RegisterUserFragment();
         Bundle args = new Bundle();
 
-    }
+    }*/
 
     public RegisterUserFragment() {
         // Required empty public constructor
     }
 
-    @Override
+/*    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_register_user);
 
         //Inputs
+
         _nameText = findViewById(R.id.input_name);
         _addressText = findViewById(R.id.input_address);
         _emailText = findViewById(R.id.input_email);
@@ -51,7 +53,7 @@ public class RegisterUserFragment extends Fragment {
             }
         });
 
-    }
+    }*/
 
     private void setContentView(int fragment_register_user) {
     }
@@ -60,6 +62,26 @@ public class RegisterUserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_user, container, false);
+
+        View view =    inflater.inflate(R.layout.fragment_register_user, container, false);
+
+
+        //Inputs
+        _nameText = view.findViewById(R.id.input_name);
+        _addressText = view.findViewById(R.id.input_address);
+        _emailText = view.findViewById(R.id.input_email);
+        _mobileText = view.findViewById(R.id.input_mobile);
+        _passwordText = view.findViewById(R.id.input_password);
+        _reEnterPasswordText = view.findViewById(R.id.input_reEnterPassword);
+        _signupButton = view.findViewById(R.id.btn_signup);
+
+        _signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // signup();
+            }
+        });
+
+        return view;
     }
 }
